@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{326F7F4B-B2CA-4FD7-B4E6-98A50958D18A}</ProjectGuid>
+    <ProjectGuid>{F1A33CD8-61F8-4337-805D-CBD8DCEA572E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Assignment2</RootNamespace>
-    <AssemblyName>Assignment2</AssemblyName>
+    <RootNamespace>GenericList</RootNamespace>
+    <AssemblyName>GenericList</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,17 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ITodoRepository.cs" />
-    <Compile Include="TodoItem.cs" />
+    <Compile Include="GenericList.cs" />
+    <Compile Include="GenericListEnumerator.cs" />
+    <Compile Include="IGenericList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TodoItemExceptions.cs" />
-    <Compile Include="TodoRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\GenericList\GenericList.csproj">
-      <Project>{f1a33cd8-61f8-4337-805d-cbd8dcea572e}</Project>
-      <Name>GenericList</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

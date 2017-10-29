@@ -34,11 +34,19 @@
 
         public static bool operator ==(Student student1, Student student2)
         {
+            if (student1 is null)
+            {
+                return (student2 is null);
+            }
             return student1.Equals(student2);
         }
 
         public static bool operator !=(Student student1, Student student2)
         {
+            if (student1 is null)
+            {
+                return (!(student2 is null));
+            }
             return !student1.Equals(student2);
         }
     }

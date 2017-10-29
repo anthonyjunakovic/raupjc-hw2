@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assignment2.TodoItemExceptions;
-using Assignment3; // Ovo je ustvari namespace assemblija iz prve zadace (retrospektivno gledano, mogao sam ga bolje nazvati)
-                   // (ukljucuje se GenericList i IGenericList tipovi)
+using GenericList;  // GenericList klasa i IGenericList sucelje iz prve domace zadace
 
 namespace Assignment2
 {
-    /// <summary >
+    /// <summary>
     /// Class that encapsulates all the logic for accessing TodoTtems .
-    /// </ summary >
+    /// </summary>
     public class TodoRepository : ITodoRepository
     {
-        /// <summary >
+        /// <summary>
         /// Repository does not fetch todoItems from the actual database ,
         /// it uses in memory storage for this excersise .
-        /// </ summary >
+        /// </summary>
         private readonly IGenericList<TodoItem> _inMemoryTodoDatabase;
         public TodoRepository(IGenericList<TodoItem> initialDbState = null)
         {
@@ -80,8 +79,7 @@ namespace Assignment2
             {
                 return false;
             }
-            i.MarkAsCompleted();
-            return true;
+            return i.MarkAsCompleted();
         }
 
         public bool Remove(Guid todoId)
@@ -91,8 +89,7 @@ namespace Assignment2
             {
                 return false;
             }
-            _inMemoryTodoDatabase.Remove(i);
-            return true;
+            return _inMemoryTodoDatabase.Remove(i);;
         }
 
         public TodoItem Update(TodoItem todoItem)

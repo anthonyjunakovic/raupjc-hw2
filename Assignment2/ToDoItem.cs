@@ -63,11 +63,19 @@ namespace Assignment2
 
         public static bool operator ==(TodoItem item1, TodoItem item2)
         {
+            if (item1 is null)
+            {
+                return (item2 is null);
+            }
             return item1.Equals(item2);
         }
 
         public static bool operator !=(TodoItem item1, TodoItem item2)
         {
+            if (item1 is null)
+            {
+                return (!(item2 is null));
+            }
             return !item1.Equals(item2);
         }
     }
