@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Assignment2;
 using Assignment2.TodoItemExceptions;
 using GenericList;  // GenericList klasa i IGenericList sucelje iz prve domace zadace
+using System;
 
 namespace Assignment3
 {
@@ -86,6 +87,32 @@ namespace Assignment3
             // Those two items must be todo1 and todo2compl
             Assert.IsTrue(
                 ((activeList[0] == todo1) && (activeList[1] == todo2compl)) || ((activeList[0] == todo2compl) && (activeList[1] == todo1))
+            );
+
+            // Test for descending order
+            IGenericList<TodoItem> todoList2 = new GenericList<TodoItem>();
+            TodoItem todo2_1 = new TodoItem("1. first");
+            TodoItem todo2_2 = new TodoItem("2. second");
+            TodoItem todo2_3 = new TodoItem("3. third");
+
+            todo2_1.DateCreated = new DateTime(1969, 1, 1);
+            todo2_2.DateCreated = new DateTime(1994, 1, 1);
+            todo2_3.DateCreated = new DateTime(3017, 1, 1);
+
+            // Add the items in mixed-up order
+            todoList2.Add(todo2_2);
+            todoList2.Add(todo2_1);
+            todoList2.Add(todo2_3);
+
+            // Create a repo 2
+            TodoRepository todoRepo2 = new TodoRepository(todoList2);
+
+            // Get all items
+            List<TodoItem> items = todoRepo2.GetAll();
+
+            // Check for order
+            Assert.IsTrue(
+                (items[0] == todo2_3) || (items[1] == todo2_2) || (items[2] == todo2_1)
             );
         }
 
