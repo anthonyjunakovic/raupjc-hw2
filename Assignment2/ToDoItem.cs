@@ -29,7 +29,9 @@ namespace Assignment2
             // ( usually done in browser on the client side )
             DateCreated = DateTime.UtcNow;
             Text = text;
-        }        public bool MarkAsCompleted()
+        }
+
+        public bool MarkAsCompleted()
         {
             if (!IsCompleted)
             {
@@ -37,7 +39,9 @@ namespace Assignment2
                 return true;
             }
             return false;
-        }        public override bool Equals(object obj)
+        }
+
+        public override bool Equals(object obj)
         {
             if (obj is TodoItem)
             {
@@ -45,13 +49,18 @@ namespace Assignment2
                 return (item.Id == this.Id);
             }
             return false;
-        }        public override int GetHashCode()
+        }
+
+        public override int GetHashCode()
         {
             return Id.GetHashCode();
-        }        public override string ToString()
+        }
+
+        public override string ToString()
         {
             return Text;
-        }
+        }
+
         public static bool operator ==(TodoItem item1, TodoItem item2)
         {
             return item1.Equals(item2);
